@@ -21,7 +21,7 @@ var cards = [
 var cardsInPlay = [];
 
 var checkForMatch = function() {
-	this.setAttribute('src', cards[cardId].rank);
+	// this.setAttribute('src', cards[cardId].rank);
 	if (cardsInPlay[0] === cardsInPlay[1]) {
 		alert("You found a match!");
 	} else {
@@ -34,6 +34,12 @@ var flipCard = function() {
 	cardsInPlay.push(cards[cardId].rank);
 	console.log(cards[cardId].cardImage);
 	console.log(cards[cardId].suit);
+	this.setAttribute('src', cards[cardId].cardImage);
+	if (cardsInPlay.length===2) { 
+		setTimeout(checkForMatch, 100);
+	}
+
+
 }
 
 var createBoard = function() {
@@ -48,6 +54,6 @@ var createBoard = function() {
 
 createBoard();
 
-checkForMatch();
+// checkForMatch();
 
 
